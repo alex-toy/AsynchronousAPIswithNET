@@ -1,8 +1,12 @@
+using Microsoft.EntityFrameworkCore;
 using ProductAPI.Data;
 using ProductAPI.Dtos;
 using ProductAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+string DefaultConnectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(DefaultConnectionString));
 
 var app = builder.Build();
 
@@ -46,7 +50,5 @@ app.MapGet("api/v1/products/{requestId}", (string requestId) =>
 {
     return Results.Ok("This is where you would pass back the final result");
 });
-
-app.UseAuthorization();
 
 app.Run();
