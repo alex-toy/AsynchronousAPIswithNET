@@ -19,5 +19,11 @@ Update-Database
 
 ## API
 
+### Start Endpoint
+
 <img src="/pictures/api.png" title="superhero api"  width="900">
+
+### Status Endpoint
+
+<img src="/pictures/api2.png" title="superhero api"  width="900">
 
